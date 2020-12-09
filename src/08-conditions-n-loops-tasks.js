@@ -184,9 +184,10 @@ function isInsideCircle(/* circle, point */) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  for (const a of new Set(str.split(''))) {
-    if (str.replace(new RegExp(a, 'g'), '').length === str.length - 1) {
-      return a;
+  const arrChar = [...new Set(str.split(''))];
+  for (let i = 0; i < arrChar.length; i += 1) {
+    if (str.replace(new RegExp(arrChar[i], 'g'), '').length === str.length - 1) {
+      return arrChar[i];
     }
   }
   return null;
