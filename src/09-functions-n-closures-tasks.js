@@ -24,7 +24,7 @@
  *
  */
 function getComposition(f, g) {
-  return function (x) {
+  return function a(x) {
     return f(g(x));
   };
 }
@@ -47,7 +47,7 @@ function getComposition(f, g) {
  *
  */
 function getPowerFunction(exponent) {
-  return function (x) {
+  return function a(x) {
     return x ** exponent;
   };
 }
@@ -87,7 +87,7 @@ function getPolynom() {
  */
 function memoize(func) {
   let first;
-  return function (...args) {
+  return function a(...args) {
     if (first) {
       return first;
     }
@@ -182,7 +182,7 @@ function partialUsingArguments(/* fn, ...args1 */) {
  */
 function getIdGeneratorFunction(startFrom) {
   let id = startFrom - 1;
-  return function () {
+  return function a() {
     id += 1;
     return id;
   };
