@@ -144,7 +144,7 @@ const cssSelectorBuilder = {
   },
 
   combine(/* selector1, combinator, selector2 */) {
-    throw new Error('Not implemented');
+    throw new Error('Nt implemented');
   },
 };
 
