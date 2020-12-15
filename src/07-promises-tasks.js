@@ -57,13 +57,7 @@ function willYouMarryMe(isPositiveAnswer) {
  *
  */
 function processAllPromises(array) {
-  return new Promise((resolve) => {
-    const arr = [];
-    array.forEach((e) => {
-      e.then((res) => arr.push(res));
-    });
-    resolve(arr);
-  });
+  return Promise.all(array);
 }
 
 /**
@@ -107,21 +101,7 @@ function getFastestPromise(array) {
  *
  */
 function chainPromises(array, action) {
-  return new Promise((resolve) => {
-    let arr;
-    array.forEach((e, ind) => {
-      e.then((res) => {
-        if (ind === 0) {
-          arr = res;
-        } else {
-          arr = action(arr, res);
-        }
-        if (ind === array.length - 1) {
-          resolve(arr);
-        }
-      });
-    });
-  });
+  return processAllPromises(array).then((res) => res.reduce(action)).catch((error) => error);
 }
 
 module.exports = {
